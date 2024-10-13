@@ -16,7 +16,7 @@ module.exports = app => {
     router.put("/:id", propietario.update);
 
     // Eliminar un propietario
-    router.delete("/:id", propietario.delete);
+    router.delete("/:dni", propietario.delete);
 
     app.use('/api/propietarios', router);
 };

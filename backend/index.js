@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 const db = require("./models");
 
 // Sincronizar la base de datos
-db.sequelize.sync({ force: false }) // Cambia a true solo para desarrollo
+db.sequelize.sync({ force: true }) // Cambia a true solo para desarrollo
     .then(() => {
         console.log("Sincronización de la base de datos realizada");
         // Iniciar el servidor solo después de que la base de datos esté sincronizada
