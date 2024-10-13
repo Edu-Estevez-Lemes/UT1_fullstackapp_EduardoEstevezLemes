@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro de mascotas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1>THE MASCOTAS</h1>
+  <h3>La app de gestión para tu amigo fiel</h3>
+  
+  <ion-button (click)="mostrarMascotas()">Mascotas</ion-button>
+  <ion-button (click)="mostrarPropietarios()">Propietarios</ion-button>
+  
+  <div *ngIf="mostrarTablaMascotas">
+    <h3>Tabla de Mascotas</h3>
+    <table>
+      <tr>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Raza</th>
+        <th>Serial Chip</th>
+      </tr>
+      <tr *ngFor="let mascota of mascotas">
+        <td>{{ mascota.nombre }}</td>
+        <td>{{ mascota.tipo }}</td>
+        <td>{{ mascota.raza }}</td>
+        <td>{{ mascota.serialChip }}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div *ngIf="mostrarTablaPropietarios">
+    <h3>Tabla de Propietarios</h3>
+    <table>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>DNI</th>
+        <th>Teléfono</th>
+      </tr>
+      <tr *ngFor="let propietario of propietarios">
+        <td>{{ propietario.nombre }}</td>
+        <td>{{ propietario.apellido }}</td>
+        <td>{{ propietario.dni }}</td>
+        <td>{{ propietario.telefono }}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div>
+    <ion-button color="primary">Agregar</ion-button>
+    <ion-button color="warning">Actualizar</ion-button>
+    <ion-button color="danger">Eliminar</ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Gestión de Mascotas y Propietarios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="button-group">
+    <ion-button (click)="cambiarTabla('mascotas')">Mascotas</ion-button>
+    <ion-button (click)="cambiarTabla('propietarios')">Propietarios</ion-button>
+  </div>
+
+  <div *ngIf="tablaSeleccionada === 'mascotas'">
+    <ion-button (click)="agregarRegistro()">Añadir Mascota</ion-button>
+    <ion-button (click)="borrarRegistro()">Borrar Mascota</ion-button>
+    <ion-list>
+      <ion-item *ngFor="let mascota of datosMascotas">
+        <ion-label>{{ mascota.nombre }}</ion-label> <!-- Ajusta el nombre de la propiedad -->
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="tablaSeleccionada === 'propietarios'">
+    <ion-button (click)="agregarRegistro()">Añadir Propietario</ion-button>
+    <ion-button (click)="borrarRegistro()">Borrar Propietario</ion-button>
+    <ion-list>
+      <ion-item *ngFor="let propietario of datosPropietarios">
+        <ion-label>{{ propietario.nombre }}</ion-label> <!-- Ajusta el nombre de la propiedad -->
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+
+<style>
+  .button-group {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
+</style>
+

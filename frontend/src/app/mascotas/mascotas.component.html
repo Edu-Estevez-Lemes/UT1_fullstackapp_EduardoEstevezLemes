@@ -1,0 +1,48 @@
+<div class="mascotas-container">
+  <h1 class="titulo">Lista de Mascotas</h1>
+  <table class="tabla-mascotas">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Raza</th>
+        <th>Sexo</th>
+        <th>Edad</th>
+        <th>Serial Chip</th>
+        <th>Propietario ID</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mascota of datos">
+        <td>{{ mascota.id }}</td>
+        <td>{{ mascota.nombre }}</td>
+        <td>{{ mascota.tipo }}</td>
+        <td>{{ mascota.raza }}</td>
+        <td>{{ mascota.sexo }}</td>
+        <td>{{ mascota.edad }}</td>
+        <td>{{ mascota.serial_chip }}</td>
+        <td>{{ mascota.id_propietario }}</td>
+        <td>
+          <button class="btn-borrar" (click)="borrarRegistro(mascota.id)">Borrar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="subtitulo">Agregar Nueva Mascota</h2>
+  <form (ngSubmit)="agregarRegistro()">
+    <input [(ngModel)]="nuevoMascota.nombre" name="nombre" placeholder="Nombre" required class="input-form">
+    <input [(ngModel)]="nuevoMascota.tipo" name="tipo" placeholder="Tipo" required class="input-form">
+    <input [(ngModel)]="nuevoMascota.raza" name="raza" placeholder="Raza" required class="input-form">
+    <input [(ngModel)]="nuevoMascota.sexo" name="sexo" placeholder="Sexo" required class="input-form">
+    <input [(ngModel)]="nuevoMascota.edad" name="edad" type="number" placeholder="Edad" required class="input-form">
+    <input [(ngModel)]="nuevoMascota.serial_chip" name="serial_chip" placeholder="Serial Chip" required class="input-form">
+    <input [(ngModel)]="nuevoMascota.id_propietario" name="id_propietario" type="number" placeholder="ID Propietario" required class="input-form">
+    <div class="button-container">
+      <button type="submit" class="btn-agregar">Agregar Mascota</button>
+    </div>
+  </form>
+</div>
+
